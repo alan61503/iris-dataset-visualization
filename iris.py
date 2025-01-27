@@ -45,3 +45,29 @@ plt.show()
 accuracy = accuracy_score(y_test, y_pred)
 print("Accuracy:", accuracy)
 print("\nClassification Report:\n", classification_report(y_test, y_pred, target_names=iris.target_names))
+
+# Bar Chart for Class Distribution (True vs Predicted)
+true_class_counts = np.bincount(y_test)
+predicted_class_counts = np.bincount(y_pred)
+
+bar_width = 0.35
+index = np.arange(3)
+
+plt.figure(figsize=(10, 6))
+bar1 = plt.bar(index, true_class_counts, bar_width, label='True Labels', color='b')
+bar2 = plt.bar(index + bar_width, predicted_class_counts, bar_width, label='Predicted Labels', color='r')
+
+plt.xlabel('Iris Species')
+plt.ylabel('Count')
+plt.title('Class Distribution - True vs Predicted')
+plt.xticks(index + bar_width / 2, iris.target_names)
+plt.legend()
+plt.show()
+
+# Pie Chart for Predicted Class Distribution
+predicted_labels_count = np.bincount(y_pred)
+
+plt.figure(figsize=(7, 7))
+plt.pie(predicted_labels_count, labels=iris.target_names, autopct='%1.1f%%', startangle=90, colors=sns.color_palette("Set2"))
+plt.title('Predicted Class Distribution')
+plt.show()
