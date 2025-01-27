@@ -1,0 +1,13 @@
+{
+	"folders": [
+		{
+			"name": "iris",
+			"path": "../aiml/iris"
+		},
+		{
+			"name": "iris-dataset-visualization",
+			"path": "."
+		}
+	],
+	"settings": {}
+}
